@@ -5,7 +5,7 @@
 #include <linux/sched.h>
 
 static struct proc_dir_entry *entry;
-
+static pid_t pid = 0;
 static int proc_count(struct seq_file *m, void *v){
     struct task_struct *task;
     int num = 0;
