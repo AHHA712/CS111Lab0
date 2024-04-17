@@ -11,7 +11,7 @@ static int proc_count(struct seq_file *m, void *v){
 	struct task_struct *task;
 	int num=0;
 	for_each_process(task){
-		if(task__state==TASK_RUNNING){
+		if(task->state==TASK_RUNNING){
 			num++;
 		}
 	}
