@@ -8,14 +8,14 @@ static struct proc_dir_entry *entry;
 
 static int proc_count(struct seq_file *m, void *v){
 	// TODO: it's all yours
-	struct task_struct *processes;
+	struct task_struct *task;
 	int num=0;
-	for_each_process(processes){
-		if(processes->state==TASK_RUNNING){
+	for_each_process(task){
+		if(task->state==TASK_RUNNING){
 			num++;
 		}
 	}
-	seq_printf(file,%d\n,num)
+	seq_printf(m,"%d\n",num)
 	return 0;
 }
 
