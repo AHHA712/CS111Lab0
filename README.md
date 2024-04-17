@@ -1,5 +1,5 @@
 # A Kernel Seedling
-TODO: It gives information about kernel module
+Intro: Created a module that would count the number of running processes. Below are the command for building that module. 
 
 ## Building
 ```shell
@@ -13,6 +13,7 @@ TODO: cmd for running binary
 sudo insmod proc_count.ko
 ```
 TODO: results?
+sudo insmod proc_count.ko
 
 ## Cleaning Up
 ```shell
@@ -25,6 +26,7 @@ make clean
 python -m unittest
 ```
 TODO: results?
+number expected
 
 Report which kernel release version you tested your module on
 (hint: use `uname`, check for options with `man uname`).
@@ -34,4 +36,4 @@ It should match release numbers as seen on https://www.kernel.org/.
 uname -r -s -v
 ```
 TODO: kernel ver?
-Darwin 23.0.0 Darwin Kernel Version 23.0.0: Fri Sep 15 14:42:57 PDT 2023; root:xnu-10002.1.13~1/RELEASE_ARM64_T8112
+Linux 5.14.8-arch1-1 #1 SMP PREEMPT Sun, 26 Sep 2021 19:36:15
