@@ -7,28 +7,30 @@
 static struct proc_dir_entry *entry;
 
 static int proc_count(struct seq_file *m, void *v){
-	// TODO: it's all yours
-	struct task_struct *task;
-	int num=0;
-	for_each_process(task){
-		if(task->state == TASK_RUNNING){
-            num++;}
-	}
-	seq_printf(m,"%d\n",num);
-	return 0;
+    struct task_struct *task;
+    int num = 0;
+    
+    for_each_process(task) {
+        if (task->state == TASK_RUNNING) {
+            num++;
+        }
+    }
+    
+    seq_printf(m, "%d\n", num);
+    return 0;
 }
 
 static int __init proc_count_init(void)
 {
-	entry = proc_create_single("count", 0, NULL, proc_count);
-	pr_info("proc_count: init\n");
-	return 0;
+    entry = proc_create_single("count", 0, NULL, proc_count);
+    pr_info("proc_count: init\n");
+    return 0;
 }
 
 static void __exit proc_count_exit(void)
 {
-	proc_remove(entry);
-	pr_info("proc_count: exit\n");
+    proc_remove(entry);
+    pr_info("proc_count: exit\n");
 }
 
 module_init(proc_count_init);
@@ -37,3 +39,4 @@ module_exit(proc_count_exit);
 MODULE_AUTHOR("Arnold He");
 MODULE_DESCRIPTION("CS111 lab0 count proc number");
 MODULE_LICENSE("GPL");
+
