@@ -5,14 +5,14 @@
 #include <linux/sched.h>
 
 static struct proc_dir_entry *entry;
-static pid_t pid = 0;
+
 static int proc_count(struct seq_file *m, void *v){
     struct task_struct *task;
     int num = 0;
     
     for_each_process(task) {
-        if (task->pid == pid) {
-            num++;
+        if (task_state == TASK_RUNNING) {
+            num=num+1;
         }
     }
     
