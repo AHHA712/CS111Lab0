@@ -11,11 +11,11 @@ static int proc_count(struct seq_file *m, void *v){
 	struct task_struct *task;
 	int num=0;
 	for_each_process(task){
-		if(task->state==TASK_RUNNING){
+		if(task__state==TASK_RUNNING){
 			num++;
 		}
 	}
-	seq_printf(m,"%d\n",num)
+	seq_printf(m,"%d\n",num);
 	return 0;
 }
 
